@@ -10,7 +10,7 @@
 
 var apiKey = "4ea9148c31a08b4dd452c9772125d0c4041a7238";
 
-Git = function(){
+function Git(){
 }
 
 Git.prototype.getRepos = function(git_user){
@@ -28,7 +28,9 @@ Git.prototype.getRepos = function(git_user){
 
 $(document).ready(function() {
   var currentGit = new Git();
-  $('#github-form').click(function() {
+  $('#github-form').submit(function(event) {
+    $(".results").html("");
+    event.preventDefault();
     var git_name = $('#github_name').val();
     $('#github_name').val("");
     currentGit.getRepos(git_name);
