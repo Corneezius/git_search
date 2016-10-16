@@ -6,9 +6,10 @@ $(document).ready(function() {
   $('#github-form').submit(function(event) {
     $(".results").html("");
     event.preventDefault();
-    
+
     var git_user = $('#github_name').val();
     $('#github_name').val("");
+    currentGit.getUsers(git_user);
     currentGit.getRepos(git_user);
   });
 });
